@@ -1,18 +1,17 @@
-# node-canvas-with-twemoji-and-discord-emoji
+# @miq4d/canvas-with-discord-content
 
-A fork of node-canvas-with-twemoji with Discord emoji support.
-This is a module that is able to draw emoji on node-canvas.
+A fork of node-canvas-with-twemoji-and-discord-emoji
 
 ## Installation
 ```shell
-$ npm install node-canvas-with-twemoji-and-discord-emoji
+$ npm install @miq4d/canvas-with-discord-content
 ```
-[npm](https://www.npmjs.com/package/node-canvas-with-twemoji-and-discord-emoji)
+[npm](https://www.npmjs.com/package/@miq4d/canvas-with-discord-content)
 
 ## Quick Example
 ```javascript
 const { createCanvas } = require('canvas');
-const { fillTextWithTwemoji } = require('node-canvas-with-twemoji-and-discord-emoji');
+const { fillTextWithTwemoji } = require('@miq4d/canvas-with-discord-content');
 
 async function main () {
     const canvas = createCanvas(200, 200);
