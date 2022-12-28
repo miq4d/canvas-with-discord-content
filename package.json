@@ -1,6 +1,6 @@
 {
   "name": "@miq4d/canvas-with-discord-content",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A fork of node-canvas-with-twemoji-and-discord-emoji",
   "main": "src/index.js",
   "types": "src/index.d.ts",

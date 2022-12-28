@@ -1,6 +1,6 @@
 import { CanvasRenderingContext2D } from "canvas";
 
-declare module "@miq4d/canvas-with-discord-emoji" {
+declare module "@miq4d/canvas-with-discord-content" {
   export interface DrawOptions {
     maxWidth?: number;
     emojiSideMarginPercent?: number;
