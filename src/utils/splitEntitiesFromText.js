@@ -26,7 +26,10 @@ function parseDiscordEmojis(textEntities) {
 }
 
 module.exports = function splitEntitiesFromText(text) {
-  const twemojiEntities = parse(text, { assetType: "png" });
+  const twemojiEntities = parse(text, {
+    assetType: "png",
+    base: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/",
+  });
 
   let unparsedText = text;
   let lastTwemojiIndice = 0;
