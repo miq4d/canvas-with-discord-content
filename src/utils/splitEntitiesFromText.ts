@@ -1,34 +1,40 @@
-const { parse } = require('twemoji-parser');
+import { EmojiEntity, parse } from "twemoji-parser";
 
 /*
  * Split Text
- * ex) 
+ * ex)
  *  '君👼の味方🤝だよ'
  *  > ['君', TwemojiObj(👼), 'の味方', TwemojiObj(🤝), 'だよ']
  */
 
 const discordEmojiPattern = "<a?:\\w+:(\\d{17,19})>";
 
-function parseDiscordEmojis(textEntities) {
+function parseDiscordEmojis(textEntities: (string | EmojiEntity)[]) {
   const newTextEntities = [];
 
   for (const entity of textEntities) {
     if (typeof entity === "string")
-      for (const word of entity.replace(new RegExp(discordEmojiPattern, "g"), "\u200b$&\u200b").split("\u200b")) {
+      for (const word of entity
+        .replace(new RegExp(discordEmojiPattern, "g"), "\u200b$&\u200b")
+        .split("\u200b")) {
         const match = word.match(new RegExp(discordEmojiPattern));
-        newTextEntities.push(match ? { url: `https://cdn.discordapp.com/emojis/${match[1]}.png` } : word);
+        newTextEntities.push(
+          match
+            ? { url: `https://cdn.discordapp.com/emojis/${match[1]}.png` }
+            : word
+        );
       }
-
     else newTextEntities.push(entity);
   }
 
   return newTextEntities;
 }
 
-module.exports = function splitEntitiesFromText(text) {
+export function splitEntitiesFromText(text: string) {
   const twemojiEntities = parse(text, {
     assetType: "png",
-    base: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/",
+    buildUrl: (codepoints, assetType) =>
+      `https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/72x72/${codepoints}.${assetType}`,
   });
 
   let unparsedText = text;

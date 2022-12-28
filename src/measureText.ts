@@ -1,13 +1,11 @@
-const splitEntitiesFromText = require('./utils/splitEntitiesFromText');
-const getFontSizeByCssFont = require('./utils/getFontSizeByCssFont');
+import { splitEntitiesFromText } from "./utils/splitEntitiesFromText";
+import { getFontSizeByCssFont } from "./utils/getFontSizeByCssFont";
 
-module.exports = function measureText (
-  context,
-  text,
-  {
-    emojiSideMarginPercent = 0.1
-  } = {}
-) {
+export function measureText(
+  context: CanvasRenderingContext2D,
+  text: string,
+  { emojiSideMarginPercent = 0.1 } = {}
+): { width: number } {
   const textEntities = splitEntitiesFromText(text);
   const fontSize = getFontSizeByCssFont(context.font);
 
@@ -17,19 +15,16 @@ module.exports = function measureText (
 
   for (let i = 0; i < textEntities.length; i++) {
     const entity = textEntities[i];
-    if (typeof entity === 'string') {
+    if (typeof entity === "string") {
       // Common text case
       currentWidth += context.measureText(entity).width;
     } else {
       // Emoji case
-      currentWidth += fontSize + (emojiSideMargin * 2);
+      currentWidth += fontSize + emojiSideMargin * 2;
     }
   }
 
-  const measured = context.measureText('');
-
   return {
     width: currentWidth,
-    alphabeticBaseline: measured.alphabeticBaseline
   };
 }
