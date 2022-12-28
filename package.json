@@ -1,5 +1,5 @@
 {
-  "name": "node-canvas-with-discord-content",
+  "name": "@miq4d/canvas-with-discord-content",
   "version": "1.0.0",
   "description": "A fork of node-canvas-with-twemoji-and-discord-emoji",
   "main": "src/index.js",
@@ -15,6 +15,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/miq4d/node-canvas-with-discord-content.git"
-  }
+    "url": "git+https://github.com/miq4d/node-canvas-with-discord-content.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miq4d/node-canvas-with-discord-content/issues"
+  },
+  "homepage": "https://github.com/miq4d/node-canvas-with-discord-content#readme"
 }
