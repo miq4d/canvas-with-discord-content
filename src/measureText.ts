@@ -1,5 +1,6 @@
 import { splitEntitiesFromText } from "./utils/splitEntitiesFromText";
 import { getFontSizeByCssFont } from "./utils/getFontSizeByCssFont";
+import { CanvasRenderingContext2D } from "canvas";
 
 export function measureText(
   context: CanvasRenderingContext2D,

@@ -1,10 +1,9 @@
 import { DrawOptions } from "./index";
-
 import { splitEntitiesFromText } from "./utils/splitEntitiesFromText";
 import { loadTwemojiImageByUrl } from "./utils/loadTwemojiImageByUrl";
 import { getFontSizeByCssFont } from "./utils/getFontSizeByCssFont";
-
 import { measureText } from "./measureText";
+import { CanvasRenderingContext2D } from "canvas";
 
 export async function drawTextWithEmoji(
   context: CanvasRenderingContext2D,

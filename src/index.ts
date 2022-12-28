@@ -1,3 +1,4 @@
+import { CanvasRenderingContext2D } from "canvas";
 import { drawTextWithEmoji } from "./drawTextWithTwemoji";
 import { measureText as measureTextFunc } from "./measureText";
 
