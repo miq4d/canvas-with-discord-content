@@ -31,6 +31,9 @@ function parseDiscordEmojis(textEntities: (string | EmojiEntity)[]) {
 }
 
 export function splitEntitiesFromText(text: string) {
+  // \ufe0f が含が含まれる場合にエラーになるので除去
+  text = text.replace(/\ufe0f/g, "");
+
   const twemojiEntities = parse(text, {
     assetType: "png",
     buildUrl: (codepoints, assetType) =>
